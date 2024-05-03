@@ -3,88 +3,210 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Menu Responsivo</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
         margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif;
       }
 
-      header {
+      .header {
         background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      nav {
-        background-color: #444;
-        display: flex;
+      .nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Alteração: tornar o contêiner do menu um flex container */
+        align-items: center; /* Adição: centralizar verticalmente os itens do menu */
+        opacity: 0.9;
+      }
+
+      .nav li {
+        margin-right: 20px;
+      }
+
+      .nav li:last-child {
+        margin-right: 0; /* Alteração: remover a margem direita do último item do menu */
+      }
+
+      .nav li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .menu-toggle {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .logo {
+        display: block;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #333;
+          padding: 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%; /* Ajuste para cobrir toda a largura */
+        }
+        .menu-toggle {
+          display: block; /* Mostrar o botão de menu */
+        }
+        .nav.active {
+          display: flex;
+        }
+        .nav.active li {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        /* Estilos adicionais para dispositivos móveis */
+        .nav.active {
+          top: 50px; /* Posiciona o menu abaixo do cabeçalho */
+        }
+      }
+
+      /* Estilos adicionais para desktop */
+      @media only screen and (min-width: 601px) {
+        .nav {
+          display: flex; /* Garantir que o menu esteja visível no desktop */
+          justify-content: center; /* Centralizar os itens do menu */
+        }
+      }
+
+      form {
+        
+        width: 80%;
+        max-width: 30rem;
         justify-content: center;
       }
 
-      nav a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
+      label,
+      input,
+      textarea,
+      .btn {
+        display: block;
       }
 
-      main {
-        padding: 20px;
-      }
-
-      section {
-        margin-bottom: 20px;
-      }
-
-      @media (max-width: 500px) {
-         .w50 {
+      input,
+      textarea,
+      .btn {
         width: 100%;
-        padding: 0;
-     }
+        font: inherit;
+        padding: 1.25rem;
+        font-weight: 700;
       }
 
-      footer {
-        background-color: #333;
+      input,
+      textarea {
+        margin-bottom: 1rem;
         color: white;
+        background: #323644;
+        border: 0.125rem solid transparent;
+        border-radius: 1.125rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input:hover,
+      input:focus,
+      textarea:hover,
+      textarea:focus {
+        outline: none;
+        border-color: #1d90f5;
+        box-shadow: 0 0 0 0.3125rem #26344a;
+      }
+
+      label {
+        margin-bottom: 0.5rem;
+        color: #84868f;
+      }
+
+      textarea {
+        min-height: 12.5rem;
+        resize: vertical;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 99px;
+        color: white;
+        background: #1d90f5;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        outline: none;
+        background: #1c70d3;
+      }
+
+      .btn:disabled {
+        cursor: not-allowed;
+        background: #555b69;
+      }
+
+      .success,
+      .error {
         text-align: center;
-        padding: 10px 0;
+      }
+
+      .success {
+        color: greenyellow;
+      }
+
+      .error {
+        color: tomato;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Meu Site</h1>
+    <header class="header">
+      <div class="logo">Logo</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
+          <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
+          <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
     </header>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#album1">Álbum 1</a>
-      <a href="#album2">Álbum 2</a>
-      <a href="#mensagens">Mensagens</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
     <main>
+      <h1 style="text-align: center">Seja Bem Vindo!</h1>
+      <p>
+        &nbsp;Recife, PE, Brazil <br /><br />
+        &nbsp; &nbsp; &nbsp;Olá pessoal! Sou Júnior Amancio e estou aqui
+        juntamente com minha esposa Juliana e nossos amados Filhos Levi e Sara
+        para compartilhar com vocês as maravilhas que o Senhor faz em nossas
+        vidas. Somos adoradores apaixonados que anda no sobrenatural, famintos e
+        sedentos por MAIS DE DEUS. A Palavra Amancio, vem do latim e significa
+        "Apaixonado" ou "aquele que ama", assim somos por Jesus! Contato: Tim
+        (81) 996174799 fale com Juliana ou Whatsaap 819xxxxxxxx fale comigo.
+        Email: amanciojr.144@gmail.com No final da pagina click em (postagens
+        mais antigas) para continuar a ver outras postagens
+      </p>
       <section id="home">
-        <h2>Bem-vindo ao Meu Site!</h2>
-        <p>
-          Recife, PE, Brazil Olá pessoal! Sou Júnior Amancio e estou aqui
-          juntamente com minha esposa Juliana e nossos amados Filhos Levi e Sara
-          para compartilhar com vocês as maravilhas que o Senhor faz em nossas
-          vidas. Somos adoradores apaixonados que anda no sobrenatural, famintos
-          e sedentos por MAIS DE DEUS. A Palavra Amancio, vem do latim e
-          significa "Apaixonado" ou "aquele que ama", assim somos por Jesus!
-          Contato: Tim (81) 996759967 fale com Juliana ou Whatsaap 81996748251
-          fale comigo. Email: amancio144@hotmail.com No final da pagina click em
-          (postagens mais antigas) para continuar a ver outras postagens
-        </p>
-      </section>
-
-      <section id="sobre">
-        <h2>Sobre</h2>
+        <h1>Home</h1>
         <p>
           Bem pessoal, gostaria de falar agora um pouco sobre o que Deus fez na
           minha vida. Eu nasci em 13/outubro/1979 e duas parteiras freiras
@@ -133,152 +255,173 @@
           sua obra para glória de Deus e que o diabo morra de inveja.
         </p>
       </section>
-
-      <section id="album1">
-        <h2>Meu Refúgio</h2>
-
-        <p>Os que esperam</p>
-        <a href="http://www.4shared.com/mp3/hTcYir36/Os_que_esperam.html?"
-          >Baixar</a
-        >
-        <p>Meu Refúgio</p>
-        <a href="http://www.4shared.com/mp3/9-wOM1uc/Meu_Refgio.html?"
-          >Baixar</a
-        >
-        <p>Não posso me esquecer</p>
-        <a href="http://www.4shared.com/mp3/KZ365Cj3/No_posso_me_esquecer.html?"
-          >Baixar</a
-        >
+      <section id="sobre">
+        <h1>Sobre</h1>
+        <p>
+          Antes de ler este conteúdo peço que leia II Crônicas cap 10 que fala
+          sobre a divisão dos reinos, fala das 12 tribos, onde 10 seguiram
+          Jeroboão, porem Judá e Benjamim seguiram Roboão, Reino Sul. O fato
+          ocorreu após a morte do Rei Salomão, filho de Davi. Deus havia
+          prometido a Davi, Reino eterno se referindo a Jesus que é o Leão da
+          tribo de Judá. Lucas 1 vs 32 Veja o que o Diabo intenta fazer para
+          tentar impedir o plano de Deus Quero falar sobre uma personagem
+          chamada Atalia. II Crônicas 22 Leia a História. Quem é a mulher
+          Atalia??? Não pertencia ao Reino Sul, pertencia a outra extirpe, outra
+          gente. A mesma usurpara o trono de Davi que não era seu por vingança
+          da morte de seu filho Rei Acazias que havia sido morto por Jeú. O Rei
+          Acazias havia feito o que era mal aos olhos de Deus e não havia
+          ninguém de sua casa capaz de reinar em Judá. A mulher Atalia revoltada
+          e usada pelo diabo "destruiu toda descendência real da casa de Judá"
+          menos um bebezinho praticamente recém-nascido chamado Joás que havia
+          sido escondido pela mulher Jeosebeate de modo que a Atalia não o
+          matou; o bebê Joás foi escondido durante 6 anos na casa de Deus
+          enquanto Atalia reinava sobre a terra. Leia também cap 23 de II
+          Crônicas. A mulher Atalia é o retrato do velho homem Colossenses 3 vs
+          9. No 7º ano, que é o ano da perfeição de Deus na sua vida, o reinado
+          de Atalia estava chegando ao fim, pois o sacerdote Joiada entrou em
+          aliança com homens de grande valor e combinaram sagrar Rei da casa de
+          Davi o pequeno Joás de apenas 7 anos de idade, e combinaram entre eles
+          matar a Mulher Atalia que usurpara o trono. Tirai-a para fora do
+          templo do Senhor e matai a espada = o templo do Senhor somos nós e a
+          espada é a palavra de Deus, faz parte da armadura de Deus, conforme
+          Efésios 6, e é assim que deve morrer a mulher Atalia, a espada. E
+          quais são as Atalias que devem morrer: ORGULHO, ÓDIO, VAIDADE, A
+          LÍNGUA, IMPUREZA, FALSIDADE, OBRAS DA CARNE E COISAS SEMELHANTES, ou
+          seja: É TUDO AQUILO QUE TOMA O LUGAR DE DEUS. Enfim, Atalia foi morta
+          e Joás com 7 aninhos simbolizando Jesus, assentou-se no trono de Davi
+          e houve grande alegria na terra. Chegou a hora de matar estas coisas
+          que tomam o lugar de Deus na nossa vida e que nos impedem de
+          achegarmos a Deus e conquistarmos suas bençãos. O Apóstolo Paulo
+          disse: Estou crucificado com Cristo, não vivo mais EU, mas Cristo vive
+          em mim. Paulo aprendeu o caminho da crucificação do EU, que tem sido
+          uma das grandes atalias da vida. Jesus aguarda a porta do nosso
+          coração, oportunidade para assentar-se no trono de nossa vida. Este
+          lugar porém e infelizmente está ocupado. Alguma Atalia usurpou-o. O
+          tempo da perfeição de Deus é chegado, é hora de atitude, mudança e de
+          conquista. Deixe Jesus Reinar em sua vida. obs: digamos que Atalia
+          tivesse matado realmente toda a descendência da casa de Davi,
+          inclusive o bebezinho Joás o único que havia sobrado por esconderijo
+          na casa de Deus durante 6 anos, onde estaria então a linhagem de Jesus
+          e a promessa do Reino eterno? Mas glória a Deus, o diabo foi derrotado
+          na tentativa de impedir o Plano de Deus chamado Jesus e a vitória é
+          nossa, por isso estamos aqui. Aleluia. Deus te abençoe! Jr Amancio.
+        </p>
       </section>
-
-      <section id="album2">
-        <h2>Coração Contrito</h2>
-
-        <p>Fiel e Verdadeiro</p>
-        <a href="http://www.4shared.com/mp3/-lYvTJZK/01_Fiel_e_Verdadeiro.html?"
-          >Baixar</a
-        >
-        <p>Tabernáculo</p>
-        <a href="http://www.4shared.com/mp3/k9SGgogl/02_Tabernculo.html?"
-          >Baixar</a
-        >
-        <p>Espontâneo Tabernáculo</p>
-        <a
-          href="http://www.4shared.com/music/l0-hLcgr/03_Espontneo_Tabernculo.html?"
-          >Baixar</a
-        >
+      <section id="servicos">
+        <h1>Serviços</h1>
+        <p>
+          Os que esperam
+          <a href="http://www.4shared.com/mp3/hTcYir36/Os_que_esperam.html?"
+            ><br />Baixar <br />
+          </a>
+          <br />Meu Refúgio
+          <a href="http://www.4shared.com/mp3/9-wOM1uc/Meu_Refgio.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Não posso me esquecer
+          <a
+            href="http://www.4shared.com/mp3/KZ365Cj3/No_posso_me_esquecer.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Cântico de guerra
+          <a href="http://www.4shared.com/mp3/wnHKu6Zn/Cntico_de_guerra.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Poder espiritual
+          <a href="http://www.4shared.com/mp3/-v9FTOc0/Poder_espiritual.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Consagração
+          <a href="http://www.4shared.com/mp3/Ro3rUkFu/Consagrao.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Figueira
+          <a href="http://www.4shared.com/mp3/34zEQsst/Figueira.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Eu hei de O abraçar
+          <a href="http://www.4shared.com/mp3/-WKT5eg3/Eu_hei_de_O_abraar.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Bendito
+          <a href="http://www.4shared.com/mp3/fvqBiJXA/Bendito.html?"
+            ><br />Baixar <br
+          /></a>
+          <br />Eu vou louvar
+          <a href="http://www.4shared.com/mp3/Nn9H3jJg/Eu_vou_louvar.html?"
+            ><br />Baixar <br
+          /></a>
+        </p>
       </section>
-
-      <section id="mensagens" class="w50">
-      <h2>Atalia</h2>
-
-      <p>
-        Antes de ler este conteúdo peço que leia II Crônicas cap 10 que fala
-        sobre a divisão dos reinos, fala das 12 tribos, onde 10 seguiram
-        Jeroboão, porem Judá e Benjamim seguiram Roboão, Reino Sul. O fato
-        ocorreu após a morte do Rei Salomão, filho de Davi. Deus havia prometido
-        a Davi, Reino eterno se referindo a Jesus que é o Leão da tribo de Judá.
-        Lucas 1 vs 32 <br />
-
-        Veja o que o Diabo intenta fazer para tentar impedir o plano de Deus
-        Quero falar sobre uma personagem chamada Atalia. II Crônicas 22 Leia a
-        História.
-        <br />
-        Quem é a mulher Atalia??? Não pertencia ao Reino Sul, pertencia a outra
-        extirpe, outra gente. A mesma usurpara o trono de Davi que não era seu
-        por vingança da morte de seu filho Rei Acazias que havia sido morto por
-        Jeú. O Rei Acazias havia feito o que era mal aos olhos de Deus e não
-        havia ninguém de sua casa capaz de reinar em Judá. A mulher Atalia
-        revoltada e usada pelo diabo "destruiu toda descendência real da casa de
-        Judá" menos um bebezinho praticamente recém-nascido chamado Joás que
-        havia sido escondido pela mulher Jeosebeate de modo que a Atalia não o
-        matou; o bebê Joás foi escondido durante 6 anos na casa de Deus enquanto
-        Atalia reinava sobre a terra. Leia também cap 23 de II Crônicas. <br />
-
-        A mulher Atalia é o retrato do velho homem Colossenses 3 vs 9.
-        <br />
-        No 7º ano, que é o ano da perfeição de Deus na sua vida, o reinado de
-        Atalia estava chegando ao fim, pois o sacerdote Joiada entrou em aliança
-        com homens de grande valor e combinaram sagrar Rei da casa de Davi o
-        pequeno Joás de apenas 7 anos de idade, e combinaram entre eles matar a
-        Mulher Atalia que usurpara o trono.
-        <br />
-        Tirai-a para fora do templo do Senhor e matai a espada = o templo do
-        Senhor somos nós e a espada é a palavra de Deus, faz parte da armadura
-        de Deus, conforme Efésios 6, e é assim que deve morrer a mulher Atalia,
-        a espada.
-        <br />
-        E quais são as Atalias que devem morrer:
-        <br />
-        ORGULHO, ÓDIO, VAIDADE, A LÍNGUA, IMPUREZA, FALSIDADE, OBRAS DA CARNE E
-        COISAS SEMELHANTES, ou seja: É TUDO AQUILO QUE TOMA O LUGAR DE DEUS.
-        <br />
-        Enfim, Atalia foi morta e Joás com 7 aninhos simbolizando Jesus,
-        assentou-se no trono de Davi e houve grande alegria na terra. Chegou a
-        hora de matar estas coisas que tomam o lugar de Deus na nossa vida e que
-        nos impedem de achegarmos a Deus e conquistarmos suas bençãos. O
-        Apóstolo Paulo disse: Estou crucificado com Cristo, não vivo mais EU,
-        mas Cristo vive em mim. Paulo aprendeu o caminho da crucificação do EU,
-        que tem sido uma das grandes atalias da vida.
-        <br />
-        Jesus aguarda a porta do nosso coração, oportunidade para assentar-se no
-        trono de nossa vida. Este lugar porém e infelizmente está ocupado.
-        Alguma Atalia usurpou-o. O tempo da perfeição de Deus é chegado, é hora
-        de atitude, mudança e de conquista. Deixe Jesus Reinar em sua vida.
-        <br />
-        obs: digamos que Atalia tivesse matado realmente toda a descendência da
-        casa de Davi, inclusive o bebezinho Joás o único que havia sobrado por
-        esconderijo na casa de Deus durante 6 anos, onde estaria então a
-        linhagem de Jesus e a promessa do Reino eterno? Mas glória a Deus, o
-        diabo foi derrotado na tentativa de impedir o Plano de Deus chamado
-        Jesus e a vitória é nossa, por isso estamos aqui. Aleluia.
-        <br />
-        Deus te abençoe!
-      </p>
-      </section>
-      <section id="contato" class="w50">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco através do formulário abaixo:</p>
-        <form>
-          <label for="nome">Nome:</label>
-          <br /><input type="text" id="nome" name="nome" /> <br /><br /><label
-            for="email"
-            >Email:</label
-          >
-          <br /><input type="email" id="email" name="email" />
-          <br /><br /><label for="mensagem">Mensagem:</label> <br /><textarea
-            id="mensagem"
-            name="mensagem"
-            cols="20"
-            rows="10"
-          ></textarea>
-          <br /><button type="submit">Enviar</button>
+      <section id="contato">
+        <h1>Contato</h1>
+        <form
+          action="https://formsubmit.co/ajax/9ec83d3ee01522185f0387f9b90284cd"
+          method="POST"
+          data-form
+        >
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" id="nome" required />
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" required />
+          <label for="mensagem">Mensagem</label>
+          <textarea name="mensagem" id="mensagem" required></textarea>
+          <button type="submit" data-button class="btn">Enviar</button>
         </form>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2021 Meu Site. Todos os direitos reservados.</p>
-    </footer>
-  </body>
-  <script>
-    // script.js
-    // Function to show a specific section based on the URL hash
-    function showSection() {
-      let hash = location.hash.substr(1)
-      document.querySelectorAll("section").forEach((section) => {
-        if (section.id === hash) {
-          section.style.display = "block"
-        } else {
-          section.style.display = "none"
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle")
+      const nav = document.querySelector(".nav")
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active")
+      })
+
+      function closeMenu() {
+        nav.classList.remove("active")
+      }
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".header")) {
+          closeMenu()
         }
       })
-    }
+    </script>
 
-    // Event listener to call the showSection function on hashchange
-    window.addEventListener("hashchange", showSection)
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuButton = document.getElementById("menuButton")
+        var menuContent = document.getElementById("menuContent")
 
-    // Call showSection function on page load
-    showSection()
-  </script>
+        menuButton.addEventListener("click", function () {
+          if (menuContent.style.display === "block") {
+            menuContent.style.display = "none"
+          } else {
+            menuContent.style.display = "block"
+          }
+        })
+      })
+
+      // script.js
+      // Function to show a specific section based on the URL hash
+      function showSection() {
+        let hash = location.hash.substr(1)
+        document.querySelectorAll("section").forEach((section) => {
+          if (section.id === hash) {
+            section.style.display = "block"
+          } else {
+            section.style.display = "none"
+          }
+        })
+      }
+
+      // Event listener to call the showSection function on hashchange
+      window.addEventListener("hashchange", showSection)
+
+      // Call showSection function on page load
+      showSection()
+    </script>
+  </body>
 </html>
