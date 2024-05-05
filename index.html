@@ -3,189 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu Responsivo</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-
-      .header {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .nav {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex; /* Alteração: tornar o contêiner do menu um flex container */
-        align-items: center; /* Adição: centralizar verticalmente os itens do menu */
-        opacity: 0.9;
-      }
-
-      .nav li {
-        margin-right: 20px;
-      }
-
-      .nav li:last-child {
-        margin-right: 0; /* Alteração: remover a margem direita do último item do menu */
-      }
-
-      .nav li a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      .menu-toggle {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        display: none;
-      }
-
-      .logo {
-        display: block;
-      }
-
-      @media only screen and (max-width: 600px) {
-        .nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          background-color: #333;
-          padding: 10px;
-          flex-direction: column;
-          align-items: flex-start;
-          width: 100%; /* Ajuste para cobrir toda a largura */
-        }
-        .menu-toggle {
-          display: block; /* Mostrar o botão de menu */
-        }
-        .nav.active {
-          display: flex;
-        }
-        .nav.active li {
-          margin-right: 0;
-          margin-bottom: 10px;
-        }
-
-        /* Estilos adicionais para dispositivos móveis */
-        .nav.active {
-          top: 50px; /* Posiciona o menu abaixo do cabeçalho */
-        }
-      }
-
-      /* Estilos adicionais para desktop */
-      @media only screen and (min-width: 601px) {
-        .nav {
-          display: flex; /* Garantir que o menu esteja visível no desktop */
-          justify-content: center; /* Centralizar os itens do menu */
-        }
-      }
-
-      form {
-        
-        width: 80%;
-        max-width: 30rem;
-        justify-content: center;
-      }
-
-      label,
-      input,
-      textarea,
-      .btn {
-        display: block;
-      }
-
-      input,
-      textarea,
-      .btn {
-        width: 100%;
-        font: inherit;
-        padding: 1.25rem;
-        font-weight: 700;
-      }
-
-      input,
-      textarea {
-        margin-bottom: 1rem;
-        color: white;
-        background: #323644;
-        border: 0.125rem solid transparent;
-        border-radius: 1.125rem;
-        transition: border-color 0.3s, box-shadow 0.3s;
-      }
-
-      input:hover,
-      input:focus,
-      textarea:hover,
-      textarea:focus {
-        outline: none;
-        border-color: #1d90f5;
-        box-shadow: 0 0 0 0.3125rem #26344a;
-      }
-
-      label {
-        margin-bottom: 0.5rem;
-        color: #84868f;
-      }
-
-      textarea {
-        min-height: 12.5rem;
-        resize: vertical;
-      }
-
-      .btn {
-        border: none;
-        border-radius: 99px;
-        color: white;
-        background: #1d90f5;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      .btn:hover,
-      .btn:focus {
-        outline: none;
-        background: #1c70d3;
-      }
-
-      .btn:disabled {
-        cursor: not-allowed;
-        background: #555b69;
-      }
-
-      .success,
-      .error {
-        text-align: center;
-      }
-
-      .success {
-        color: greenyellow;
-      }
-
-      .error {
-        color: tomato;
-      }
-    </style>
-  </head>
+    <link rel="stylesheet" href="./style.css">
+    <title>Meu Site</title>
+    </head>
   <body>
     <header class="header">
-      <div class="logo">Logo</div>
+      <div class="logo" style="text-align: center">AMANCIO JR</div>
       <nav class="nav">
         <ul>
-          <li><a href="#home" onclick="closeMenu()">Home</a></li>
-          <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
-          <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
-          <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+          <li><a href="#bio" onclick="closeMenu()">BIOGRAFIA</a></li>
+          <li><a href="#sobre" onclick="closeMenu()">SOBRE</a></li>
+          <li><a href="#servicos" onclick="closeMenu()">SERVIÇOS</a></li>
+          <li><a href="#contato" onclick="closeMenu()">CONTATO</a></li>
         </ul>
       </nav>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
@@ -205,8 +34,8 @@
         Email: amanciojr.144@gmail.com No final da pagina click em (postagens
         mais antigas) para continuar a ver outras postagens
       </p>
-      <section id="home">
-        <h1>Home</h1>
+      <section id="bio">
+        <h1>BIOGRAFIA</h1>
         <p>
           Bem pessoal, gostaria de falar agora um pouco sobre o que Deus fez na
           minha vida. Eu nasci em 13/outubro/1979 e duas parteiras freiras
@@ -256,7 +85,7 @@
         </p>
       </section>
       <section id="sobre">
-        <h1>Sobre</h1>
+        <h1>SOBRE</h1>
         <p>
           Antes de ler este conteúdo peço que leia II Crônicas cap 10 que fala
           sobre a divisão dos reinos, fala das 12 tribos, onde 10 seguiram
@@ -308,7 +137,7 @@
         </p>
       </section>
       <section id="servicos">
-        <h1>Serviços</h1>
+        <h1>SERVIÇOS</h1>
         <p>
           Os que esperam
           <a href="http://www.4shared.com/mp3/hTcYir36/Os_que_esperam.html?"
@@ -354,7 +183,7 @@
         </p>
       </section>
       <section id="contato">
-        <h1>Contato</h1>
+        <h1>CONTATO</h1>
         <form
           action="https://formsubmit.co/ajax/9ec83d3ee01522185f0387f9b90284cd"
           method="POST"
@@ -367,61 +196,15 @@
           <label for="mensagem">Mensagem</label>
           <textarea name="mensagem" id="mensagem" required></textarea>
           <button type="submit" data-button class="btn">Enviar</button>
+          <br />
         </form>
       </section>
     </main>
+    <footer>
+      <p>&copy; 2021 Meu Site. Todos os direitos reservados.</p>
+    </footer>
 
-    <script>
-      const menuToggle = document.querySelector(".menu-toggle")
-      const nav = document.querySelector(".nav")
-
-      menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("active")
-      })
-
-      function closeMenu() {
-        nav.classList.remove("active")
-      }
-
-      document.addEventListener("click", (event) => {
-        if (!event.target.closest(".header")) {
-          closeMenu()
-        }
-      })
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var menuButton = document.getElementById("menuButton")
-        var menuContent = document.getElementById("menuContent")
-
-        menuButton.addEventListener("click", function () {
-          if (menuContent.style.display === "block") {
-            menuContent.style.display = "none"
-          } else {
-            menuContent.style.display = "block"
-          }
-        })
-      })
-
-      // script.js
-      // Function to show a specific section based on the URL hash
-      function showSection() {
-        let hash = location.hash.substr(1)
-        document.querySelectorAll("section").forEach((section) => {
-          if (section.id === hash) {
-            section.style.display = "block"
-          } else {
-            section.style.display = "none"
-          }
-        })
-      }
-
-      // Event listener to call the showSection function on hashchange
-      window.addEventListener("hashchange", showSection)
-
-      // Call showSection function on page load
-      showSection()
-    </script>
+    
   </body>
+  <script src="./script.js"></script>
 </html>

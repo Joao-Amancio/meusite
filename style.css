@@ -1,0 +1,278 @@
+body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: grid;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Alteração: tornar o contêiner do menu um flex container */
+        align-items: center; /* Adição: centralizar verticalmente os itens do menu */
+        opacity: 0.9;
+      }
+
+      .nav ul {
+        list-style-type: none;
+      }
+
+      .nav li {
+        margin-right: 20px;
+      }
+
+      .nav li:last-child {
+        margin-right: 0; /* Alteração: remover a margem direita do último item do menu */
+      }
+
+      .nav li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .menu-toggle {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .logo {
+        display: block;
+        text-align: center;
+        font-size: 25px;
+        margin: 0 auto;
+        border: 1px solid white;
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #333;
+          padding: 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 38%; /* Ajuste para cobrir toda a largura */
+        }
+        .menu-toggle {
+          display: block; /* Mostrar o botão de menu */
+        }
+        .nav.active {
+          display: flex;
+        }
+        .nav.active li {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        /* Estilos adicionais para dispositivos móveis */
+        .nav.active {
+          top: 50px; /* Posiciona o menu abaixo do cabeçalho */
+        }
+      }
+
+      /* Estilos adicionais para desktop */
+      @media only screen and (min-width: 601px) {
+        .nav {
+          display: flex; /* Garantir que o menu esteja visível no desktop */
+          justify-content: center; /* Centralizar os itens do menu */
+        }
+      }
+
+      form {
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        width: 80%;
+        max-width: 30rem;
+        justify-content: center;
+      }
+
+      label,
+      input,
+      textarea,
+      .btn {
+        display: block;
+      }
+
+      input,
+      textarea,
+      .btn {
+        width: 100%;
+        font: inherit;
+        padding: 1.25rem;
+        font-weight: 700;
+      }
+
+      input,
+      textarea {
+        margin-bottom: 1rem;
+        color: white;
+        background: #323644;
+        border: 0.125rem solid transparent;
+        border-radius: 1.125rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input:hover,
+      input:focus,
+      textarea:hover,
+      textarea:focus {
+        outline: none;
+        border-color: #1d90f5;
+        box-shadow: 0 0 0 0.3125rem #26344a;
+      }
+
+      label {
+        margin-bottom: 0.5rem;
+        color: #84868f;
+      }
+
+      textarea {
+        min-height: 12.5rem;
+        resize: vertical;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 99px;
+        color: white;
+        background: #1d90f5;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        outline: none;
+        background: #1c70d3;
+      }
+
+      .btn:disabled {
+        cursor: not-allowed;
+        background: #555b69;
+      }
+
+      .success,
+      .error {
+        text-align: center;
+      }
+
+      .success {
+        color: greenyellow;
+      }
+
+      .error {
+        color: tomato;
+      }
+
+      /* Estilos adicionais para desktop */
+      @media only screen and (min-width: 601px) {
+        .nav {
+          margin: 0 auto; /* Centraliza a lista de navegação */
+        }
+      }
+
+      /* Estilos adicionais para desktop */
+      @media only screen and (min-width: 601px) {
+        .nav {
+          margin: 0 auto; /* Centraliza a lista de navegação */
+        }
+
+        .nav ul {
+          display: flex; /* Torna a lista de navegação horizontal */
+          padding: 0; /* Remove o preenchimento padrão da lista */
+        }
+
+        .nav li {
+          margin-right: 20px; /* Mantém a margem entre os itens da lista */
+        }
+
+        .nav li:last-child {
+          margin-right: 0; /* Remove a margem direita do último item da lista */
+        }
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      /* Adicionando regras de estilo para dispositivos móveis */
+      @media only screen and (max-width: 600px) {
+        body {
+          font-size: 16px; /* Aumentar o tamanho da fonte para dispositivos móveis */
+        }
+        .header {
+          padding: 10px; /* Reduzir o padding do cabeçalho */
+        }
+        .nav {
+          padding: 10px 0; /* Adicionar espaço entre os itens do menu */
+        }
+        .nav li {
+          margin-right: 0;
+          margin-bottom: 10px; /* Aumentar o espaço entre os itens do menu */
+        }
+        .menu-toggle {
+          padding: 10px; /* Aumentar o tamanho do botão de menu */
+        }
+        main {
+          padding: 20px; /* Adicionar espaço entre as seções do conteúdo */
+        }
+        p {
+          line-height: 1.6; /* Aumentar o espaçamento entre linhas */
+        }
+        h1,
+        h2,
+        h3 {
+          margin-top: 20px; /* Adicionar espaço antes dos títulos */
+          margin-bottom: 10px; /* Adicionar espaço após os títulos */
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+          font-size: 16px; /* Aumentar o tamanho da fonte nos campos de formulário */
+        }
+      }
+
+      /* Adicionando regras de estilo para dispositivos móveis */
+      @media only screen and (max-width: 600px) {
+        /* Outros estilos existentes... */
+
+        .nav {
+          font-size: 18px; /* Aumentar o tamanho da fonte do menu */
+        }
+
+        .nav li {
+          margin-bottom: 15px; /* Aumentar o espaço entre os itens do menu */
+        }
+      }
+
+      /* Adicionando regras de estilo para dispositivos móveis */
+      @media only screen and (max-width: 600px) {
+        /* Outros estilos existentes... */
+
+        .menu-toggle {
+          padding: 1px 35px; /* Aumentar o tamanho do botão de menu */
+          font-size: 28px; /* Aumentar o tamanho da fonte do botão */
+          font-weight: bold;
+        }
+      }
